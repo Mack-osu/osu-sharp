@@ -46,5 +46,7 @@ public enum Grade
   /// <summary>
   /// D-rank accuracy, any mod.
   /// </summary>
-  D
+  D,
+
+  F
 }

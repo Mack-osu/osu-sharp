@@ -44,8 +44,8 @@ public partial class OsuApiClient
   /// <param name="limit">Optional. The amount of results to return.</param>
   /// <param name="offset">Optional. The offset for the scores to return.</param>
   /// <returns>The scores of the specified type or null, if the user was not found.</returns>
-  public async Task<Score[]?> GetUserScoresAsync(int userId, UserScoreType type, bool legacyOnly = false, bool includeFails = false,
-                                                 Ruleset? ruleset = null, int? limit = null, int? offset = null)
+  public async Task<Score[]?> GetUserScoresAsync(int userId, UserScoreType type, int legacyOnly = 0, int includeFails = 0,
+                                                 string? ruleset = null, int? limit = null, int? offset = null)
   {
     string typeStr = typeof(UserScoreType).GetField(type.ToString())!.GetCustomAttribute<DescriptionAttribute>()!.Description;
     return await GetFromJsonAsync<Score[]>($"users/{userId}/scores/{typeStr}/", new Dictionary<string, object?>
